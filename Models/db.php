@@ -20,6 +20,7 @@ class Movie {
         };
         return $generi;
     } 
+
     public function setDuration($duration) {
         $this->duration = $duration;
     }
@@ -35,7 +36,7 @@ class Movie {
     // public function printAll() {
     //     echo 'Titolo: '.$this->title .'<br>Durata: '.$this->getDuration().'<br>Anno: '.$this->getYear().'<br>Generi: '.$this->getGenre().'<br><br>';
     // }
-    
+
     function __construct($title, $genres, $duration, $year) {
         $this->title = $title;
         $this->genres = $genres;

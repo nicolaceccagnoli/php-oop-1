@@ -50,9 +50,7 @@
                     </li>
                     <li class="list-group-item">
                         <?php
-                        foreach ($movieArray[$i]['genre'] as $singleGenre) {
-                            echo $singleGenre;
-                        }
+                            echo $movie->getGenre();
                         ?>
                     </li>
                     <li class="list-group-item">
@@ -66,6 +64,7 @@
                             echo $year;
                         ?>
                     </li>
+                    <br>
                 <?php
                 }
                 ?>

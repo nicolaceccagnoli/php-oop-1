@@ -32,9 +32,9 @@ class Movie {
     public function getYear() {
         return $this->year;
     }
-    public function printAll() {
-        echo 'Titolo: '.$this->title .'<br>Durata: '.$this->getDuration().'<br>Anno: '.$this->getYear().'<br>Generi: '.$this->getGenre().'<br><br>';
-    }
+    // public function printAll() {
+    //     echo 'Titolo: '.$this->title .'<br>Durata: '.$this->getDuration().'<br>Anno: '.$this->getYear().'<br>Generi: '.$this->getGenre().'<br><br>';
+    // }
     
     function __construct($title, $genres, $duration, $year) {
         $this->title = $title;

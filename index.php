@@ -1,10 +1,9 @@
 <?php
 
-class Movie {
 
-};
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +23,8 @@ class Movie {
         </h1>
     </header>
     <main>
-
+        <div class="container">
+        </div>
     </main>
 </body>
 </html>

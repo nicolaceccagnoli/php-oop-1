@@ -1,0 +1,15 @@
+[
+    {
+        "title" : "The Prestige",
+        "genre" : ["Thriller", "Fantascienza"],
+        "duration" : 135,
+        "year" : 2006
+    },
+    {
+        "title" : "Spider-Man: Across the Spider-Verse",
+        "genre" : ["Animazione", "Azione"],
+        "duration" : 140,
+        "year" : 2023
+    }
+
+]

@@ -1,6 +1,10 @@
 <?php
 
+    require_once __DIR__."/Models/db.php";
 
+    $movieString = file_get_contents('./Models/movies.json');
+
+    $movieArray = json_decode($movieString, true);
 
 ?>
 
@@ -24,6 +28,50 @@
     </header>
     <main>
         <div class="container">
+            
+            <ul class="list-group">
+
+                <?php 
+
+                    for ($i = 0; $i < count($movieArray); $i++) {
+                        $title = $movieArray[$i]['title'];
+                        $genre = $movieArray[$i]['genre'];
+                        $duration = $movieArray[$i]['duration'];
+                        $year = $movieArray[$i]['year'];
+
+                        $movie = new Movie($title,$genre,$duration,$year);
+
+                ?>
+
+                    <li class="list-group-item">
+                        <?php
+                            echo $title;
+                        ?>
+                    </li>
+                    <li class="list-group-item">
+                        <?php
+                        foreach ($movieArray[$i]['genre'] as $singleGenre) {
+                            echo $singleGenre;
+                        }
+                        ?>
+                    </li>
+                    <li class="list-group-item">
+                        <?php
+                            echo $duration;
+                        ?>
+                        minuti
+                    </li>
+                    <li class="list-group-item">
+                        <?php
+                            echo $year;
+                        ?>
+                    </li>
+                <?php
+                }
+                ?>
+                
+            </ul>
+
         </div>
     </main>
 </body>

@@ -1,43 +1,47 @@
 <?php
-
+#Includo la classe generi da un altro file
 include __DIR__."/genre.php";
 
+#Creo una nuova classe Movie
 class Movie {
 
+    #Imposto gli attributi della mia classe
     public $title;
-    public $genres = [];
+    public $genres;
     private $duration;
     private $year;
 
-    public function getGenre() {
-        $generi = '';
-        for ($j = 0; $j < count($this->genres); $j++){
-            $generi .= $this->genres[$j];
-            if ($j < count($this->genres) - 1) {
-                // Aggiungi uno spazio tra i generi, eccetto dopo l'ultimo
-                $generi .= ', ';
-            }
-        };
-        return $generi;
-    } 
-
+    #Dichiaro la funzione setter per la durata nella quale controllo il tipo di dato passato
     public function setDuration($duration) {
-        $this->duration = $duration;
+        if (is_numeric($duration)) {
+            $this->duration = $duration;
+        }
+        else {
+            var_dump('ERRORE: Parametro inserito non valido');
+        }
     }
+
+    #Dichiaro la funzione getter per la durata per permettere di vedere questo dato all'esterno
     public function getDuration() {
         return $this->duration;
     }
+
+    #Dichiaro la funzione setter per l'anno nella quale controllo il tipo di dato passato
     public function setYear($year) {
-        $this->year =  $year;
+        if (is_numeric($year)) {
+            $this->year = $year;}
+        else {
+            var_dump('ERRORE: Parametro inserito non valido');
+        }
     }
+
+    #Dichiaro la funzione setter per l'anno per permettere di vedere questo dato all'esterno
     public function getYear() {
         return $this->year;
     }
-    // public function printAll() {
-    //     echo 'Titolo: '.$this->title .'<br>Durata: '.$this->getDuration().'<br>Anno: '.$this->getYear().'<br>Generi: '.$this->getGenre().'<br><br>';
-    // }
 
-    function __construct($title, $genres, $duration, $year) {
+    #Dichiaro il costruttore della mia classe
+    function __construct($title, Genre $genres, $duration, $year) {
         $this->title = $title;
         $this->genres = $genres;
         $this->setDuration($duration);
@@ -45,22 +49,6 @@ class Movie {
     }
     
 };
-
-// $movieString = file_get_contents('movies.json');
-
-// $movieArray = json_decode($movieString, true);
-
-// for ($i = 0; $i < count($movieArray); $i++) {
-//     $title = $movieArray[$i]['title'];
-//     $genre = $movieArray[$i]['genre'];
-//     $duration = $movieArray[$i]['duration'];
-//     $year = $movieArray[$i]['year'];
-
-//     $movie = new Movie($title,$genre,$duration,$year);
-
-//     $movie->printAll();
-
-// }
 
 ?>
 

@@ -1,5 +1,6 @@
 <?php
 
+    #Importo le mie classi e i miei json da altri file
     require_once __DIR__."/Models/db.php";
 
     $movieString = file_get_contents('./Models/movies.json');
@@ -33,12 +34,17 @@
 
                 <?php 
 
+                    #Creo un ciclo che scorra dentro il file json
                     for ($i = 0; $i < count($movieArray); $i++) {
                         $title = $movieArray[$i]['title'];
-                        $genre = $movieArray[$i]['genre'];
+                        $genres = $movieArray[$i]['genre'];
                         $duration = $movieArray[$i]['duration'];
                         $year = $movieArray[$i]['year'];
 
+                        #Creo una nuova istanza per i generi e gli passo come argomento i generi del file json
+                        $genre = new Genre($genres);
+
+                        #Creo una nuova istanza movie per i film presenti in tutto l'array json
                         $movie = new Movie($title,$genre,$duration,$year);
 
                 ?>
@@ -50,7 +56,8 @@
                     </li>
                     <li class="list-group-item">
                         <?php
-                            echo $movie->getGenre();
+                            #Stampo i generi richiamando la funzione che cicla sull'array dell'attributo $genres della mia classe Genre inclusa in Movie
+                            echo $movie->genres->getGenre();
                         ?>
                     </li>
                     <li class="list-group-item">

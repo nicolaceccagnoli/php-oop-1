@@ -45,7 +45,7 @@
                         $genre = new Genre($genres);
 
                         #Creo una nuova istanza movie per i film presenti in tutto l'array json
-                        $movie = new Movie($title,$genre,$duration,$year);
+                        $movie[$i] = new Movie($title,$genre,$duration,$year);
 
                 ?>
 
@@ -57,7 +57,7 @@
                     <li class="list-group-item">
                         <?php
                             #Stampo i generi richiamando la funzione che cicla sull'array dell'attributo $genres della mia classe Genre inclusa in Movie
-                            echo $movie->genres->getGenre();
+                            echo $movie[$i]->genres?->getGenre();
                         ?>
                     </li>
                     <li class="list-group-item">
